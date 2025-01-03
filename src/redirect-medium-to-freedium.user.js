@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Redirect Medium to FreeMedium
 // @description  Redirect medium.com to freedium.cfd so you can read without login
-// @version      0.3
+// @version      0.4
 // @license      MIT
-// @website      https://github.com/mangogan-git/tempermonkey-scripts
+// @website      https://github.com/mangogan-git/tampermonkey-scripts
 // @source       https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/redirect-medium-to-freedium.user.js
 // @namespace    https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/redirect-medium-to-freedium.user.js
 // @match        https://medium.com/*

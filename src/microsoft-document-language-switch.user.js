@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         MS DOC LANGUAGE-CHANGE
 // @description  Add keyBinding "keyT" to switch language between browser language and "en-us"
-// @version      0.2
+// @version      0.3
 // @license      MIT
 // @author       mangogan-git
-// @website     https://github.com/mangogan-git/tempermonkey-scripts
+// @website     https://github.com/mangogan-git/tampermonkey-scripts
 // @source       https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/microsoft-document-language-switch.user.js
 // @namespace    https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/microsoft-document-language-switch.user.js
 // @match        https://docs.microsoft.com/*

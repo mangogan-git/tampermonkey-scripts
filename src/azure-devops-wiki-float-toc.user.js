@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Azure DevOps: toggle TOC float
-// @version      1.0
+// @version      1.0.1
 // @description  Make the TOC of Azure Wikis float for easier reading, toggle with "keyT"
 // @license      MIT
 // @author       mangogan-git
-// @website     https://github.com/mangogan-git/tempermonkey-scripts
+// @website     https://github.com/mangogan-git/tampermonkey-scripts
 // @source       https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/azure-devops-wiki-float-toc.user.js
 // @namespace    https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/azure-devops-wiki-float-toc.user.js
 // @match        *://dev.azure.com/*
