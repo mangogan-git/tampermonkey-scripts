@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Redirect Medium to FreeMedium
 // @description  Redirect medium.com to freedium.cfd so you can read without login
-// @version      0.4
+// @version      0.5
 // @license      MIT
 // @website      https://github.com/mangogan-git/tampermonkey-scripts
 // @source       https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/redirect-medium-to-freedium.user.js
@@ -69,6 +69,13 @@
         closeButton.addEventListener('click', () => {
             document.body.removeChild(modal);
             clearTimeout(ensureModalTimeout);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                document.body.removeChild(modal);
+                clearTimeout(ensureModalTimeout);
+            }
         });
     }
 
