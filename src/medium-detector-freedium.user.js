@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Medium Detector - Freedium Redirect
 // @description  Detect Medium articles and show dialog to redirect to Freedium
-// @version      1.1
+// @version      1.2
 // @license      MIT
 // @author       mangogan-git
 // @website      https://github.com/mangogan-git/tampermonkey-scripts
@@ -39,13 +39,31 @@
             return true;
         }
         
-        // If URL check fails, check head elements for "medium" string
-        // Use more efficient querySelector methods to check common medium-related elements
+        // If URL check fails, check head elements that might contain "Medium" in their content
+        const contentCheckSelectors = [
+            'meta[property="og:site_name"]',
+            'meta[name="twitter:app:name:iphone"]',
+            'meta[property="al:ios:app_name"]',
+            'meta[property="al:android:app_name"]',
+        ];
+        
+        for (const selector of contentCheckSelectors) {
+            const elements = document.head.querySelectorAll(selector);
+            for (const element of elements) {
+                const content = (element.textContent || element.getAttribute('content') || '');
+                if(content === 'Medium'){
+                    return true;
+                }
+            }
+        }
+
+        // Check common medium-related elements
         const directMediumSelectors = [
-            'meta[property*="medium" i]',
-            'meta[name*="medium" i]',
-            'meta[content*="medium" i]',
-            'link[href*="medium" i]'
+            'link[href*="medium.com" i]',
+            'meta[content="com.medium.reader"]',
+            'meta[content*="medium.com" i]',
+            'meta[content^="medium://" i]',
+            'meta[content="Medium"]',
         ];
         
         // Check selectors that directly contain "medium" - if found, it's a match
@@ -54,23 +72,7 @@
                 return true;
             }
         }
-        
-        // Check general elements that might contain "medium" in their content
-        const contentCheckSelectors = [
-            'title',
-            'meta[property="og:site_name"]',
-            'meta[name="application-name"]'
-        ];
-        
-        for (const selector of contentCheckSelectors) {
-            const elements = document.head.querySelectorAll(selector);
-            for (const element of elements) {
-                const content = (element.textContent || element.getAttribute('content') || '');
-                if (content.includes('.medium') || /\bMedium\b/.test(content)) {
-                    return true;
-                }
-            }
-        }
+
         
         return false;
     }
