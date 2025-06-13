@@ -33,12 +33,26 @@
     </tr>
     <tr>
       <td>
-        <a href="https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/redirect-medium-to-freedium.user.js">⬇️</a>
+        <a href="https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/medium-detector-freedium.user.js">⬇️</a>
       </td>
-      <td>Redirect Medium to FreeMedium</td>
+      <td>Medium Detector - Freedium Redirect</td>
       <td>
         <ul>
-          <li>Redirect medium.com to <a href="https://freedium.cfd/">freedium.cfd</a> so you can read without login</li>
+          <li>Detect Medium articles and show dialog to redirect to <a href="https://freedium.cfd/">freedium.cfd</a></li>
+          <li>Works on all websites, smart detection using URL and meta tags</li>
+          <li>Keyboard shortcuts: <kbd>Enter</kbd> to confirm, <kbd>Esc</kbd> to cancel</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/redirect-medium-to-freedium.user.js">⬇️</a>
+      </td>
+      <td>🚫 Redirect Medium to FreeMedium <em>(Deprecated)</em></td>
+      <td>
+        <ul>
+          <li><strike>Redirect medium.com to <a href="https://freedium.cfd/">freedium.cfd</a> so you can read without login</strike></li>
+          <li><em>This script is deprecated. Use "Medium Detector - Freedium Redirect" instead for better detection and user experience.</em></li>
         </ul>
       </td>
     </tr>

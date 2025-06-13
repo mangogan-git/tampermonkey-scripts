@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Redirect Medium to FreeMedium
-// @description  Redirect medium.com to freedium.cfd so you can read without login
+// @name         [DEPRECATED] Redirect Medium to FreeMedium
+// @description  [DEPRECATED] Use "Medium Detector - Freedium Redirect" instead. This script redirects medium.com to freedium.cfd
 // @version      0.5
 // @license      MIT
 // @website      https://github.com/mangogan-git/tampermonkey-scripts
@@ -11,6 +11,14 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=medium.com
 // @grant        none
 // ==/UserScript==
+
+// DEPRECATED NOTICE:
+// This script is deprecated and will no longer receive updates.
+// Please use "Medium Detector - Freedium Redirect" instead, which provides:
+// - Better detection across all websites
+// - User confirmation dialog
+// - Keyboard shortcuts support
+// - Smart detection using URL and meta tags
 
 (function () {
     'use strict';
