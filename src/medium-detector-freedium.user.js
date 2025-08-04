@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Medium Detector - Freedium Redirect
 // @description  Detect Medium articles and show dialog to redirect to Freedium
-// @version      1.2
+// @version      1.3
 // @license      MIT
 // @author       mangogan-git
 // @website      https://github.com/mangogan-git/tampermonkey-scripts
@@ -14,10 +14,14 @@
 // @exclude      *://google.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=medium.com
 // @grant        none
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    // Prevent running in iframe
+    if (window.top !== window.self) return;
 
     let dialog = null;
 
