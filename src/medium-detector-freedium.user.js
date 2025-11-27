@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Medium Detector - Freedium Redirect
 // @description  Detect Medium articles and show dialog to redirect to Freedium
-// @version      1.3
+// @version      1.4
 // @license      MIT
 // @author       mangogan-git
 // @website      https://github.com/mangogan-git/tampermonkey-scripts
