@@ -27,7 +27,7 @@
 
     function isMediumArticle() {
         // Skip if already on freedium.cfd
-        if (window.location.href.includes('freedium.cfd')) {
+        if (window.location.href.includes('freedium-mirror.cfd')) {
             return false;
         }
         
@@ -209,7 +209,7 @@
 
     function handleConfirm() {
         const currentUrl = window.location.href;
-        const freediumUrl = 'https://freedium.cfd/' + currentUrl;
+        const freediumUrl = 'https://freedium-mirror.cfd//' + currentUrl;
         window.location.href = freediumUrl;
     }
 
