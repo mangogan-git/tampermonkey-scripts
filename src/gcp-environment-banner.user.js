@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GCP Project Environment Banner Manager
 // @namespace    https://github.com/mangogan-git/tampermonkey-scripts
-// @version      1.0.0
+// @version      1.0.1
 // @description  GCP Console 專案環境顏色標記與管理 UI
 // @author       mangogan-git
 // @license      MIT
@@ -839,23 +839,44 @@
 
   let lastUrl = location.href;
 
-  const observer = new MutationObserver(function () {
-    if (location.href !== lastUrl) {
-      LOGGER.debug('route changed', location.href);
-
-      lastUrl = location.href;
-
-      setTimeout(function () {
-        injectControlButton();
-        applyBannerColor();
-      }, 300);
+  function onRouteChange() {
+    if (location.href === lastUrl) {
+      return;
     }
-  });
 
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
+    LOGGER.debug('route changed', location.href);
+
+    lastUrl = location.href;
+
+    setTimeout(function () {
+      injectControlButton();
+      applyBannerColor();
+    }, 300);
+  }
+
+  if (window.navigation) {
+    // Navigation API (Chrome 102+, Edge 102+): fires after current entry changes,
+    // no monkey-patching required.
+    window.navigation.addEventListener('currententrychange', onRouteChange);
+  } else {
+    // Fallback for browsers without Navigation API: patch history methods and
+    // listen to popstate (back/forward).
+    const _push = history.pushState.bind(history);
+
+    history.pushState = function () {
+      _push.apply(history, arguments);
+      onRouteChange();
+    };
+
+    const _replace = history.replaceState.bind(history);
+
+    history.replaceState = function () {
+      _replace.apply(history, arguments);
+      onRouteChange();
+    };
+
+    window.addEventListener('popstate', onRouteChange);
+  }
 
   /**
    * ============================================================
