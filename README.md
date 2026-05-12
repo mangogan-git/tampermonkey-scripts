@@ -11,6 +11,19 @@
   <tbody>
     <tr>
       <td>
+        <a href="https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/gcp-environment-banner.user.js">⬇️</a>
+      </td>
+      <td>GCP Project Environment Banner Manager</td>
+      <td>
+        <ul>
+          <li>Color-codes the GCP Console top banner based on the current project's environment</li>
+          <li>Supports exact match and regex rules — top rule wins; lines starting with <code>#</code> are comments</li>
+          <li>Manage rules and category colors via the in-page UI (🎨 button in the toolbar)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a href="https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/ithome-auto-redirect-desktop.user.js">⬇️</a>
       </td>
       <td>IThome Auto Redirect Desktop</td>
