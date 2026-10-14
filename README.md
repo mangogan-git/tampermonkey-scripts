@@ -80,5 +80,17 @@
         </ul>
       </td>
     </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/mangogan-git/tampermonkey-scripts/raw/master/src/steam-akamai.user.js">⬇️</a>
+      </td>
+      <td>Steam Store Auto Akamai CDN</td>
+      <td>
+        <ul>
+          <li>Automatically adds <code>_cdn=akamai</code> to Steam Store URLs and reloads the page</li>
+          <li>Preserves existing query parameters and URL fragments, and prevents reload loops</li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
