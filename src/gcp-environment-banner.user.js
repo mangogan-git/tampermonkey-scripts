@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GCP Project Environment Banner Manager
 // @namespace    https://github.com/mangogan-git/tampermonkey-scripts
-// @version      1.0.1
+// @version      1.0.2
 // @description  GCP Console 專案環境顏色標記與管理 UI
 // @author       mangogan-git
 // @license      MIT
@@ -280,15 +280,24 @@
   }
 
   function getBanner() {
-    return document.querySelector(
-      'div[role="banner"]'
+    const selector = 'div[role="banner"]';
+    const oldBanner = document.querySelector(selector);
+    if (oldBanner) return oldBanner;
+
+    const hosts = document.querySelectorAll(
+      'one-cloud-bar-widget mica-widget div.full'
     );
+
+    for (const host of hosts) {
+      const banner = host.shadowRoot?.querySelector(selector);
+      if (banner) return banner;
+    }
+
+    return null;
   }
 
   function getInsertTarget() {
-    return document.querySelector(
-      'div[role="banner"] .cfc-platform-bar-left'
-    );
+    return getBanner()?.querySelector('.cfc-platform-bar-left') ?? null;
   }
 
   /**
@@ -424,10 +433,6 @@
 
   function injectControlButton() {
     try {
-      if (document.getElementById('tm-gcp-config-btn')) {
-        return;
-      }
-
       const target = getInsertTarget();
 
       if (!target) {
@@ -435,6 +440,10 @@
           'inject target not found (.cfc-platform-bar-left)'
         );
 
+        return;
+      }
+
+      if (target.querySelector('#tm-gcp-config-btn')) {
         return;
       }
 
